@@ -12,7 +12,7 @@ def tiff_to_image_array(tiff_image_name, out_folder, out_type):
     tif = TIFF.open(tiff_image_name, mode = "r")
     idx = 0
     im_folder=[]
-    for im in list(tif.iter_images())[:1]:
+    for im in list(tif.iter_images()):
         im_name = out_folder + str(idx) + out_type
         # add one dimension for rgb
         im = np.dstack([im,im,im]).astype(np.float32)
